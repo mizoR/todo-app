@@ -20,4 +20,8 @@ public class TaskDao {
     public List<Task> findAll() {
         return jdbcTemplate.query("SELECT * FROM tasks", ROW_MAPPER);
     }
+
+    public Task find(int id) {
+        return jdbcTemplate.queryForObject("SELECT * FROM tasks WHERE id = ?", ROW_MAPPER, 1);
+    }
 }
